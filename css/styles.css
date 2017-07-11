@@ -1,0 +1,54 @@
+.form-inline > select {
+	width: 10%;
+}
+
+.form-inline  input {
+	width: 70% !important;
+}
+
+.form-inline > button {
+	width: 10%;
+}
+
+
+
+.form-control {
+    display: inline-block;
+    width: 70%;
+    vertical-align: middle;
+  }
+
+.editors {
+	width: 10%;
+	max-width: 100px;
+	float: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display:flex;
+	justify-content: space-around;
+	height: 54px;
+}
+
+#collapse1 {
+	clear: both;
+}
+/*
+.test-instance {
+  	position: relative;
+}
+.panel-heading {
+	flex-grow: 1;
+} */
+.fa {
+	margin: auto;
+}
+#newCase {
+	color:green;
+	padding-top: 5px;
+}
+
+#removeCase {
+	color:red;
+	padding: 2px;
+}
+
