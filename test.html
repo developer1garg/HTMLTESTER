@@ -7,36 +7,12 @@
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
-<button id="ajaxButton" type="button">Make a request</button>
-<button id="ajaxButton" type="button">Make a request</button>
 
-<script>
-(function() {
-  var httpRequest;
-  document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+<video  controls>
+	<source src="/Users/dgarg/Downloads/BB2.mp4" style="width:200px;height:100px;" poster="/Users/dgarg/Downloads/IMG_1633.jpg"/>
+	<track src="devstories-en.vtt" label="English subtitles" 
+         kind="subtitles" srclang="en" default></track>
+</video>
 
-  function makeRequest() {
-    httpRequest = new XMLHttpRequest();
-
-    if (!httpRequest) {
-      alert('Giving up :( Cannot create an XMLHTTP instance');
-      return false;
-    }
-    httpRequest.onreadystatechange = alertContents;
-    httpRequest.open('GET', 'http://www.aahoon.com');
-    httpRequest.send();
-  }
-
-  function alertContents() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-      if (httpRequest.status === 200) {
-        alert(httpRequest.responseText);
-      } else {
-        alert('There was a problem with the request.');
-      }
-    }
-  }
-})();
-</script>
 </body>
 </html>
