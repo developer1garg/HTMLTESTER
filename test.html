@@ -3,16 +3,33 @@
 <head>
   <title>HTML Tester</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/Users/dgarg/WEBDEV/assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
 
-<video  controls>
-	<source src="/Users/dgarg/Downloads/BB2.mp4" style="width:200px;height:100px;" poster="/Users/dgarg/Downloads/IMG_1633.jpg"/>
-	<track src="devstories-en.vtt" label="English subtitles" 
+<video style="width:300px;height:300px;border-radius: 25px;filter: grayscale(100%);"  controls poster="../media/P1010315.JPG" preload="auto">
+	<source src="../media/05FormInputsFixed.mp4" />
+	<track src="../media/bahubali.vtt" label="English subtitles" 
          kind="subtitles" srclang="en" default></track>
 </video>
+<div>
+    <video id="live" width="320" height="240" autoplay></video>
+</div>
+<script type="text/javascript">
+ video = document.getElementById("live")
+    var ctx;
+    // use the chrome specific GetUserMedia function
+    navigator.mediaDevices.getUserMedia({video: true, audio:true},
+            function(stream) {
+                video.src = URL.createObjectURL(stream);
+            },
+            function(err) {
+                console.log("Unable to get video stream!")
+            }
+         
+    )
+</script>
 
 </body>
+
 </html>
