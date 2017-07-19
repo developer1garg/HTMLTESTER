@@ -6,13 +6,15 @@
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body>
-
-<video style="width:300px;height:300px;border-radius: 25px;filter: grayscale(100%);"  controls poster="../media/P1010315.JPG" preload="auto">
+<!--
+<video style="width:300px;height:300px;border-radius: 25px;filter: grayscale(100%);"  controls poster="../media/P1010315.JPG"> 
 	<source src="../media/05FormInputsFixed.mp4" />
 	<track src="../media/bahubali.vtt" label="English subtitles" 
          kind="subtitles" srclang="en" default></track>
 </video>
+-->
 <div>
+    <h1>Your feed here </h1>
     <video id="live" width="320" height="240" autoplay></video>
 </div>
 <script type="text/javascript">
@@ -21,7 +23,8 @@
     // use the chrome specific GetUserMedia function
     navigator.mediaDevices.getUserMedia({video: true, audio:true},
             function(stream) {
-                video.src = URL.createObjectURL(stream);
+                video.src = window.URL.createObjectURL(stream);
+                video.play();
             },
             function(err) {
                 console.log("Unable to get video stream!")
