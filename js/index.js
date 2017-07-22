@@ -1,12 +1,38 @@
 var newCaseButton = document.querySelector(".panel #newCase");
 var cloneCaseButton = document.querySelector(".panel #cloneCase");
 var removeCaseButton = document.querySelector(".panel #removeCase");
-var currentTestInstance = 1
+var sendRequestButton = document.getElementById("sendRequest");
+
+var currentTestInstance = 1;
+var httpRequest;
 
 newCaseButton.addEventListener("click", addTestCase);
 cloneCaseButton.addEventListener("click", addTestCase);
 removeCaseButton.addEventListener("click", removeTestCase);
+sendRequestButton.addEventListener("click", sendRequest);
 
+function sendRequest() {
+  var url = "www.aahoon.com";
+
+  httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = processResponse;
+  httpRequest.open("GET",url,true);
+  httpRequest.send();
+}
+
+function processResponse() {
+  if(httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      alert("Yay!!");
+
+    } else {
+      alert("The response was: ", httpRequest.status);
+    }
+
+  } else {
+    alert("There is some issue");
+  }
+}
 function addTestCase() {
   console.log("hello");
   var testCaseGroupNode = this.closest("#accordion");
