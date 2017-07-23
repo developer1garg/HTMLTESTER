@@ -3,6 +3,11 @@ var cloneCaseButton = document.querySelector(".panel #cloneCase");
 var removeCaseButton = document.querySelector(".panel #removeCase");
 var sendRequestButton = document.getElementById("sendRequest");
 
+var headersCanvas = document.getElementById("responseHeaders").getContext("2d");
+var responseCanvas = document.getElementById("responseText").getContext("2d");
+var viewCanvas = document.getElementById("responseView").getContext("2d");
+
+
 var currentTestInstance = 1;
 var httpRequest;
 
@@ -12,7 +17,7 @@ removeCaseButton.addEventListener("click", removeTestCase);
 sendRequestButton.addEventListener("click", sendRequest);
 
 function sendRequest() {
-  var url = "www.aahoon.com";
+  var url = "http://www.aahoon.com";
 
   httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = processResponse;
@@ -23,14 +28,12 @@ function sendRequest() {
 function processResponse() {
   if(httpRequest.readyState === XMLHttpRequest.DONE) {
     if (httpRequest.status === 200) {
-      alert("Yay!!");
+      headersCanvas.fillText(httpRequest.getAllResponseHeaders(),10,10);
+      responseCanvas.fillText(httpRequest.response,10,10);
 
     } else {
-      alert("The response was: ", httpRequest.status);
+      alert("The response was: "+ httpRequest.status);
     }
-
-  } else {
-    alert("There is some issue");
   }
 }
 function addTestCase() {

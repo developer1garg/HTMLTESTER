@@ -51,4 +51,6 @@
 	color:blue;
 	padding: 2px;
 }
-
+.responseDisplay {
+  border: 1px solid black;
+}
