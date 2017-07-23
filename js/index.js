@@ -3,7 +3,7 @@ var cloneCaseButton = document.querySelector(".panel #cloneCase");
 var removeCaseButton = document.querySelector(".panel #removeCase");
 var sendRequestButton = document.getElementById("sendRequest");
 
-var headersCanvas = document.getElementById("responseHeaders").getContext("2d");
+var headersCanvas = document.getElementById("responseHeaders");
 var responseCanvas = document.getElementById("responseText").getContext("2d");
 var viewCanvas = document.getElementById("responseView");
 
@@ -28,9 +28,10 @@ function sendRequest() {
 function processResponse() {
   if(httpRequest.readyState === XMLHttpRequest.DONE) {
     if (httpRequest.status === 200) {
-      headersCanvas.fillText(httpRequest.getAllResponseHeaders(),10,10);
+      headersCanvas.setInnerText(httpRequest.getAllResponseHeaders(),10,10);
       responseCanvas.fillText(httpRequest.response,10,10);
-      viewCanvas.setAttribute("src",httpRequest.responseURL);
+      viewCanvas.setAttribute("src",httpRequest.responseURL)
+      ls 
 
     } else {
       alert("The response was: "+ httpRequest.status);
