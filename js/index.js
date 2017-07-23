@@ -5,7 +5,7 @@ var sendRequestButton = document.getElementById("sendRequest");
 
 var headersCanvas = document.getElementById("responseHeaders").getContext("2d");
 var responseCanvas = document.getElementById("responseText").getContext("2d");
-var viewCanvas = document.getElementById("responseView").getContext("2d");
+var viewCanvas = document.getElementById("responseView");
 
 
 var currentTestInstance = 1;
@@ -30,6 +30,7 @@ function processResponse() {
     if (httpRequest.status === 200) {
       headersCanvas.fillText(httpRequest.getAllResponseHeaders(),10,10);
       responseCanvas.fillText(httpRequest.response,10,10);
+      viewCanvas.setAttribute("src",httpRequest.responseURL);
 
     } else {
       alert("The response was: "+ httpRequest.status);
